@@ -1,26 +1,134 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html,
+body{
+  width:100%;
+  height:100%;
+  overflow:hidden;
+
+  background:#030507;
+  color:white;
+
+  font-family:Georgia, serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.hero{
+  position:relative;
+
+  width:100vw;
+  height:100vh;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  overflow:hidden;
+}
+
+.content{
+  position:relative;
+  z-index:2;
+
+  text-align:center;
+}
+
+.label{
+  letter-spacing:6px;
+
+  font-size:11px;
+
+  opacity:.5;
+
+  margin-bottom:40px;
+}
+
+h1{
+  font-size:96px;
+
+  line-height:.9;
+
+  font-weight:300;
+}
+
+.subtitle{
+  margin-top:40px;
+
+  color:rgba(255,255,255,.6);
+
+  line-height:1.8;
+}
+
+button{
+  margin-top:60px;
+
+  background:transparent;
+
+  color:white;
+
+  border:1px solid rgba(255,255,255,.2);
+
+  padding:18px 42px;
+
+  letter-spacing:4px;
+
+  cursor:pointer;
+
+  transition:.4s;
+}
+
+button:hover{
+  background:white;
+  color:black;
+}
+
+.mist{
+  position:absolute;
+  inset:-20%;
+
+  background:
+    radial-gradient(
+      circle at 30% 30%,
+      rgba(180,190,255,.25),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 70% 50%,
+      rgba(255,255,255,.18),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 50% 80%,
+      rgba(120,140,255,.18),
+      transparent 35%
+    );
+
+  filter:blur(140px);
+
+  animation:float 18s ease-in-out infinite;
+}
+
+@keyframes float{
+
+  0%{
+    transform:
+      translateX(-2%)
+      translateY(0);
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  50%{
+    transform:
+      translateX(2%)
+      translateY(-40px);
+  }
+
+  100%{
+    transform:
+      translateX(-2%)
+      translateY(0);
+  }
+
 }
